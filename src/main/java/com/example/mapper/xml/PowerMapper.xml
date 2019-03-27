@@ -9,11 +9,14 @@
         <result column="name" property="name" />
         <result column="url" property="url" />
         <result column="type" property="type" />
+        <result column="parent_id" property="parentId" />
+        <result column="level" property="level" />
+        <result column="sort" property="sort" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, code, name, url, type
+        id, code, name, url, type, parent_id, level, sort
     </sql>
 
 </mapper>

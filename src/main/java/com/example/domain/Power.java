@@ -49,5 +49,23 @@ public class Power implements Serializable {
     @TableField("type")
     private String type;
 
+    /**
+     * 父级权限id
+     */
+    @TableField("parent_id")
+    private String parentId;
+
+    /**
+     * 权限等级
+     */
+    @TableField("level")
+    private String level;
+
+    /**
+     * 权限顺序
+     */
+    @TableField("sort")
+    private String sort;
+
 
 }
