@@ -1,6 +1,6 @@
 package com.example.mapper;
 
-import com.example.domain.User;
+import com.example.domain.Role;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author hao
  * @since 2019-03-27
  */
-public interface UserMapper extends BaseMapper<User> {
+public interface RoleMapper extends BaseMapper<Role> {
 
 }

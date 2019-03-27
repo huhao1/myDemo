@@ -18,7 +18,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class User implements Serializable {
+public class UserRole implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -26,28 +26,16 @@ public class User implements Serializable {
     private String id;
 
     /**
-     * 姓名
+     * 用户Id
      */
-    @TableField("name")
-    private String name;
+    @TableField("user_id")
+    private String userId;
 
     /**
-     * 手机号
+     * 角色Id
      */
-    @TableField("mobile")
-    private String mobile;
-
-    /**
-     * 密码
-     */
-    @TableField("password")
-    private String password;
-
-    /**
-     * admin:管理员，vip:会员，public:大众
-     */
-    @TableField("role")
-    private String role;
+    @TableField("role_id")
+    private String roleId;
 
 
 }

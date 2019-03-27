@@ -1,6 +1,6 @@
 package com.example.service;
 
-import com.example.domain.User;
+import com.example.domain.Role;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author hao
  * @since 2019-03-27
  */
-public interface UserService extends IService<User> {
+public interface RoleService extends IService<Role> {
 
 }
