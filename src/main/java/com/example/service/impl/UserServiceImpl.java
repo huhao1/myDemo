@@ -62,6 +62,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public IPage<User> getUserPage(UserVo userVo){
         Page page = new Page<>(userVo.getPage(),userVo.getLimit());
+        page.setDesc("create_time");
         return userMapper.selectPage(page, getQueryWrapper(userVo));
     }
 

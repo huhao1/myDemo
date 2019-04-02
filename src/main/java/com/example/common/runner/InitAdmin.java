@@ -14,7 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * @ClassName InitAdmin
@@ -72,6 +72,7 @@ public class InitAdmin implements ApplicationRunner {
             model.setRoleId(role1.getId());
             model.setRoleCode(role1.getCode());
             model.setRoleName(role1.getName());
+            model.setCreateTime(LocalDateTime.now());
 
             userMapper.insert(model);
         }

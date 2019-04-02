@@ -8,12 +8,15 @@
         <result column="name" property="name" />
         <result column="mobile" property="mobile" />
         <result column="password" property="password" />
-        <result column="role" property="role" />
+        <result column="role_id" property="roleId" />
+        <result column="role_code" property="roleCode" />
+        <result column="role_name" property="roleName" />
+        <result column="create_time" property="createTime" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, name, mobile, password, role
+        id, name, mobile, password, role_id, role_code, role_name, create_time
     </sql>
 
 </mapper>
