@@ -1,7 +1,7 @@
 package com.example.web;
 
 import com.example.common.util.Constants;
-import com.example.common.responseVo.ResponseVo;
+import com.example.common.response.ResponseVo;
 import com.example.common.exception.BaseException;
 import com.example.common.jwt.JwtAuthenticationRequest;
 import com.example.common.jwt.JwtAuthenticationResponse;

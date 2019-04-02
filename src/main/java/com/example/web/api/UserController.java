@@ -1,7 +1,8 @@
 package com.example.web.api;
 
 
-import com.example.common.responseVo.ResponseVo;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.example.common.response.ResponseVo;
 import com.example.domain.User;
 import com.example.domain.vo.UserVo;
 import com.example.service.UserService;
@@ -35,7 +36,13 @@ public class UserController {
         return new ResponseVo().setCode(200).setData(userList).setMsg("SUCCESS");
     }
 
+    @GetMapping(value = "getUserPage")
+    public ResponseVo getUserPage(UserVo userVo){
 
+        IPage<User> userList = userService.getUserPage(userVo);
+
+        return new ResponseVo().setCode(200).setData(userList).setMsg("SUCCESS");
+    }
 
 }
 
