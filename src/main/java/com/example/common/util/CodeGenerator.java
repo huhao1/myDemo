@@ -43,13 +43,13 @@ public class CodeGenerator implements Serializable {
         // 开启 baseColumnList
         gc.setBaseColumnList(true);
         // 是否覆盖已有文件
-        gc.setFileOverride(true);
+        gc.setFileOverride(false);
         // 生成文件的命名方式
-//        gc.setMapperName("%sMapper");
-//        gc.setXmlName("%sMapper");
-//        gc.setServiceName("%sService");
-//        gc.setServiceImplName("%sServiceImpl");
-//        gc.setControllerName("%sController");
+        gc.setMapperName("%sMapper");
+        gc.setXmlName("%sMapper");
+        gc.setServiceName("%sService");
+        gc.setServiceImplName("%sServiceImpl");
+        gc.setControllerName("%sController");
 
         return gc;
     }
@@ -66,13 +66,13 @@ public class CodeGenerator implements Serializable {
 
     private static PackageConfig setPackageConfig(){
         PackageConfig pc = new PackageConfig();
-//        pc.setParent("com.example");
+        pc.setParent("com.example");
         pc.setEntity("domain");
-//        pc.setController("web.api");
-//        pc.setMapper("mapper");
-//        pc.setXml("mapper.xml");
-//        pc.setService("service");
-//        pc.setServiceImpl("service.impl");
+        pc.setController("web.api");
+        pc.setMapper("mapper");
+        pc.setXml("mapper.xml");
+        pc.setService("service");
+        pc.setServiceImpl("service.impl");
 
         return pc;
     }
@@ -84,7 +84,7 @@ public class CodeGenerator implements Serializable {
         // lombok
         strategy.setEntityLombokModel(true);
         // 生成 @RestController 控制器
-//        strategy.setRestControllerStyle(true);
+        strategy.setRestControllerStyle(true);
         // 驼峰转连字符
         strategy.setControllerMappingHyphenStyle(true);
         // 是否生成实体时，生成字段注解
