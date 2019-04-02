@@ -44,7 +44,7 @@ public class User implements Serializable {
     private String password;
 
     /**
-     * admin:管理员，vip:会员，public:大众
+     * ADMIN:管理员，VIP:会员，PUBLIC:大众
      */
     @TableField("role")
     private String role;

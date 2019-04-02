@@ -1,6 +1,7 @@
 package com.example.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.example.common.exception.BaseException;
 import com.example.domain.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.domain.vo.UserVo;
@@ -37,5 +38,12 @@ public interface UserService extends IService<User> {
      * @return
      */
     boolean insert(User user);
+
+    /**
+     * 根据姓名查找
+     * @param mobile
+     * @return
+     */
+    User findByMobile(String mobile);
 
 }

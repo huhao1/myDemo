@@ -1,11 +1,11 @@
-package com.example.common.dto;
+package com.example.common.responseVo;
 
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 
 @Component
-public class ResponseBo implements Serializable{
+public class ResponseVo implements Serializable{
 	
 	private static final long serialVersionUID = 7213095123438097838L;
 
@@ -23,7 +23,7 @@ public class ResponseBo implements Serializable{
 		return code;
 	}
 
-	public ResponseBo setCode(int code) {
+	public ResponseVo setCode(int code) {
 		this.code = code;
 		return this;
 	}
@@ -32,7 +32,7 @@ public class ResponseBo implements Serializable{
 		return msg;
 	}
 
-	public ResponseBo setMsg(String msg) {
+	public ResponseVo setMsg(String msg) {
 		this.msg = msg;
 		return this;
 	}
@@ -41,7 +41,7 @@ public class ResponseBo implements Serializable{
 		return count;
 	}
 
-	public ResponseBo setCount(Long count) {
+	public ResponseVo setCount(Long count) {
 		this.count = count;
 		return this;
 	}
@@ -50,7 +50,7 @@ public class ResponseBo implements Serializable{
 		return data;
 	}
 
-	public ResponseBo setData(Object data) {
+	public ResponseVo setData(Object data) {
 		this.data = data;
 		return this;
 	}
@@ -59,7 +59,7 @@ public class ResponseBo implements Serializable{
 		return action;
 	}
 
-	public ResponseBo setAction(String action) {
+	public ResponseVo setAction(String action) {
 		this.action = action;
 		return this;
 	}

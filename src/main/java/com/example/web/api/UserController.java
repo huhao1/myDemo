@@ -1,9 +1,16 @@
 package com.example.web.api;
 
 
+import com.example.common.responseVo.ResponseVo;
+import com.example.domain.User;
+import com.example.domain.vo.UserVo;
+import com.example.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * <p>
@@ -16,6 +23,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/user")
 public class UserController {
+
+    @Autowired
+    private UserService userService;
+
+    @GetMapping(value = "getUserList")
+    public ResponseVo getUserList(UserVo userVo){
+
+        List<User> userList = userService.getUserList(userVo);
+
+        return new ResponseVo().setCode(200).setData(userList).setMsg("SUCCESS");
+    }
+
+
 
 }
 

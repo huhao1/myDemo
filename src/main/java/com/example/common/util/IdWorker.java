@@ -1,5 +1,7 @@
 package com.example.common.util;
 
+import org.springframework.context.annotation.Bean;
+
 public class IdWorker {
 
     /** 开始时间截 (2015-01-01) */
@@ -127,7 +129,6 @@ public class IdWorker {
         System.out.println(id);
         System.out.println(Encript.md5(id));
     }
-
 
 }
 

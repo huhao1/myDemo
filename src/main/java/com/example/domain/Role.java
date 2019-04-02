@@ -31,5 +31,11 @@ public class Role implements Serializable {
     @TableField("name")
     private String name;
 
+    /**
+     * 角色编码
+     */
+    @TableField("code")
+    private String code;
+
 
 }
