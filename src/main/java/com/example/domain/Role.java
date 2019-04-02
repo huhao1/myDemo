@@ -26,13 +26,13 @@ public class Role implements Serializable {
     private String id;
 
     /**
-     * 角色名称
+     * 角色名称：管理员，会员，大众
      */
     @TableField("name")
     private String name;
 
     /**
-     * 角色编码
+     * 角色编码：admin，vip，public
      */
     @TableField("code")
     private String code;

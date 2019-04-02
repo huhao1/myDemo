@@ -44,10 +44,22 @@ public class User implements Serializable {
     private String password;
 
     /**
-     * ADMIN:管理员，VIP:会员，PUBLIC:大众
+     * 角色Id
      */
-    @TableField("role")
-    private String role;
+    @TableField("role_id")
+    private String roleId;
+
+    /**
+     * 角色编码：admin，vip，public
+     */
+    @TableField("role_code")
+    private String roleCode;
+
+    /**
+     * 角色名称：管理员，会员，大众
+     */
+    @TableField("role_name")
+    private String roleName;
 
 
 }

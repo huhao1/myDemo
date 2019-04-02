@@ -33,9 +33,9 @@ public class UserVo implements Serializable {
     private String password;
 
     /**
-     * admin:管理员，vip:会员，public:大众
+     * 角色Id
      */
-    private String role;
+    private String roleId;
 
     /**
      * 页码
