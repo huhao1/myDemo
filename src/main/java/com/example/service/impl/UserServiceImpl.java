@@ -11,6 +11,9 @@ import com.example.mapper.UserMapper;
 import com.example.service.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,6 +26,7 @@ import java.util.List;
  * @author hao
  * @since 2019-03-27
  */
+@CacheConfig(cacheNames = "UserCache")
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
@@ -54,11 +58,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return queryWrapper;
     }
 
+    @Cacheable
     @Override
     public List<User> getUserList(UserVo userVo) {
         return userMapper.selectList(getQueryWrapper(userVo));
     }
 
+    @Cacheable
     @Override
     public IPage<User> getUserPage(UserVo userVo){
         Page page = new Page<>(userVo.getPage(),userVo.getLimit());
@@ -66,12 +72,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return userMapper.selectPage(page, getQueryWrapper(userVo));
     }
 
+    @CacheEvict(value={"UserCache"}, allEntries = true)
     @Override
     public boolean insert(User user){
         user.setId(idWorker.create());
         return this.save(user);
     }
 
+    @Cacheable
     @Override
     public User findByMobile(String mobile){
         QueryWrapper<User> userQueryWrapper = new QueryWrapper<>();
