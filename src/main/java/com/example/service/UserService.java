@@ -33,11 +33,18 @@ public interface UserService extends IService<User> {
     IPage<User> getUserPage(UserVo userVo);
 
     /**
+     * 动态条件查询单个
+     * @param userVo
+     * @return
+     */
+    User selectOne(UserVo userVo);
+
+    /**
      * 添加
      * @param user
      * @return
      */
-    boolean insert(User user);
+    User insert(User user);
 
     /**
      * 根据姓名查找

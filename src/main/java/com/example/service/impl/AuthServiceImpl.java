@@ -1,11 +1,10 @@
 package com.example.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.common.exception.BaseException;
 import com.example.common.jwt.JwtTokenUtil;
 import com.example.domain.User;
-import com.example.mapper.UserMapper;
 import com.example.service.AuthService;
+import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -25,7 +24,7 @@ import org.springframework.stereotype.Service;
 public class AuthServiceImpl implements AuthService {
 
     @Autowired
-    private UserMapper userMapper;
+    private UserService userService;
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -39,10 +38,7 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public String login(String username, String password) throws BaseException {
 
-        QueryWrapper<User> userQueryWrapper = new QueryWrapper<>();
-        userQueryWrapper.eq("mobile",username);
-
-        User user = userMapper.selectOne(userQueryWrapper);
+        User user = userService.findByMobile(username);
 
         if(null == user){
             throw new BaseException("用户不存在");

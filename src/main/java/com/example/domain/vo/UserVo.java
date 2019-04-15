@@ -38,6 +38,11 @@ public class UserVo implements Serializable {
     private String roleId;
 
     /**
+     * 角色编码：admin，vip，public
+     */
+    private String roleCode;
+
+    /**
      * 页码
      */
     private Integer page;

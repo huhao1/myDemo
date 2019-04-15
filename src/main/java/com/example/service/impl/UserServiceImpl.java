@@ -47,6 +47,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             queryWrapper.eq("role_id", userVo.getRoleId());
         }
 
+        if(StringUtils.isNotBlank(userVo.getRoleCode())){
+            queryWrapper.eq("role_code", userVo.getRoleCode());
+        }
+
         if(StringUtils.isNotBlank(userVo.getName())){
             queryWrapper.like("name", userVo.getName());
         }
@@ -72,11 +76,19 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return userMapper.selectPage(page, getQueryWrapper(userVo));
     }
 
+    @Override
+    public User selectOne(UserVo userVo){
+        return userMapper.selectOne(getQueryWrapper(userVo));
+    }
+
     @CacheEvict(value={"UserCache"}, allEntries = true)
     @Override
-    public boolean insert(User user){
-        user.setId(idWorker.create());
-        return this.save(user);
+    public User insert(User user){
+        if(StringUtils.isNotBlank(user.getId())){
+            user.setId(idWorker.create());
+        }
+        this.save(user);
+        return userMapper.selectById(user.getId());
     }
 
     @Cacheable

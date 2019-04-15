@@ -7,6 +7,7 @@ import com.example.domain.User;
 import com.example.domain.vo.UserVo;
 import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,6 +29,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @PreAuthorize("hasPermission('user/getUserList','获取用户列表')")
     @GetMapping(value = "getUserList")
     public ResponseVo getUserList(UserVo userVo){
 
@@ -36,6 +38,7 @@ public class UserController {
         return new ResponseVo().setCode(200).setData(userList).setMsg("SUCCESS");
     }
 
+    @PreAuthorize("hasPermission('user/getUserPage','获取用户分页列表')")
     @GetMapping(value = "getUserPage")
     public ResponseVo getUserPage(UserVo userVo){
 

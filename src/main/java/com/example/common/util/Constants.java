@@ -100,20 +100,6 @@ public class Constants {
 	 **/
 	public static final String MSG_SUCCESS_CHECK = "校验通过";
 
-	public enum role{
-		Admin("Admin"),VIP("VIP"),PUBLIC("PUBLIC");
-
-		private String value;
-
-		role(String role) {
-			this.value = role;
-		}
-
-		public String getValue() {
-			return value;
-		}
-	}
-
 	/**
 	 * 常用状态值
 	 */
