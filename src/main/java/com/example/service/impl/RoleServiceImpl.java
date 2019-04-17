@@ -40,7 +40,7 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
         }
 
         if(StringUtils.isNotBlank(roleVo.getCode())){
-            queryWrapper.like("code", roleVo.getCode());
+            queryWrapper.eq("code", roleVo.getCode());
         }
 
         return queryWrapper;
@@ -53,7 +53,7 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
 
     @Override
     public Role insert(Role role){
-        if(StringUtils.isNotBlank(role.getId())){
+        if(StringUtils.isBlank(role.getId())){
             role.setId(idWorker.create());
         }
         this.save(role);

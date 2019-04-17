@@ -42,7 +42,7 @@ public class PowerServiceImpl extends ServiceImpl<PowerMapper, Power> implements
 
     @Override
     public Power insert(Power power){
-        if(StringUtils.isNotBlank(power.getId())){
+        if(StringUtils.isBlank(power.getId())){
             power.setId(idWorker.create());
         }
         this.save(power);

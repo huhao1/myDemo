@@ -55,7 +55,7 @@ public class RolePowerServiceImpl extends ServiceImpl<RolePowerMapper, RolePower
 
     @Override
     public RolePower insert(RolePower rolePower){
-        if(StringUtils.isNotBlank(rolePower.getId())){
+        if(StringUtils.isBlank(rolePower.getId())){
             rolePower.setId(idWorker.create());
         }
         this.save(rolePower);

@@ -56,7 +56,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         }
 
         if(StringUtils.isNotBlank(userVo.getMobile())){
-            queryWrapper.like("mobile", userVo.getMobile());
+            queryWrapper.eq("mobile", userVo.getMobile());
         }
 
         return queryWrapper;
@@ -84,7 +84,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @CacheEvict(value={"UserCache"}, allEntries = true)
     @Override
     public User insert(User user){
-        if(StringUtils.isNotBlank(user.getId())){
+        if(StringUtils.isBlank(user.getId())){
             user.setId(idWorker.create());
         }
         this.save(user);
